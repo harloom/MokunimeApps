@@ -1,6 +1,7 @@
 import express,{ Application,Request,Response,NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import socket from 'socket.io';
 
 const app : Application = express();
 
