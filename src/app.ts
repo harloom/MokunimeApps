@@ -5,13 +5,9 @@ import socket from 'socket.io';
 import * as path from "path";
 
 const app : Application = express();
-// app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3000);
 const http = require('http').Server(app);
 const io = socket(http)
-
-
-
-
 
 
 app.use(bodyParser.json());
@@ -20,9 +16,13 @@ dotenv.config({
   path: '.env'
 });	
 io.on("connection", function(socket: any) {
-  console.log("a user connected");
+  console.log("a user connected " + `${socket}`);
 });
+
+
+
+
 app.get('/',(req:Request,res : Response ) => {
   res.sendFile(path.resolve("./src/index.html"));
 })
-export default app;
+export default http;
