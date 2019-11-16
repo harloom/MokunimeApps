@@ -11,13 +11,6 @@ dotenv.config({
 });	
 
 app.get('/',(req:Request,res : Response ) => {
-
     res.send('TS App is Running')
 })
-
-const PORT = process.env.PORT || 30000;
-
-
-app.listen(PORT,() => {
-    console.log(`server is running on PORT ${PORT}`)
-})
+export default app;
