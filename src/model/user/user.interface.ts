@@ -1,6 +1,6 @@
-import monggose,{Document,Schema,Model,model} from "mongoose";
 
-export  default interface User {
+
+interface User {
   _id: string;
   uid_firebase :String;
   name: string;
@@ -12,3 +12,4 @@ export  default interface User {
   createAt? : Date;
   updateAt? : Date;
 }
+export  default User

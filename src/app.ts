@@ -1,9 +1,9 @@
 import express,{ Application,Request,Response,NextFunction } from 'express';
+import  bodyParser from 'body-parser';
+import  cookieParser from 'cookie-parser';
 import Controller from './interfaces/controller.interfaces';
 import errorMiddleware from './middleware/error.middleware';
 import Connect from './db/monggose-db';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser'
 import  dotenv from "dotenv";
 import  socket ,{Server} from 'socket.io';
 import * as path from "path";
@@ -45,8 +45,8 @@ class App{
   }
 
   private initializeMiddleWare(){
-    this.app.use(bodyParser.json())
-    this.app.use(cookieParser())
+    this.app.use(bodyParser.json());
+    this.app.use(cookieParser());
 
   }
 
@@ -64,8 +64,10 @@ class App{
     Connect({ db });
   }
 
-  private initializeController(controller : Controller[]){
-
+  private initializeController(controllers : Controller[]){
+    controllers.forEach((controller) => {
+      this.app.use('/', controller.router);
+    });
   }
 
   private initializeSocketIO(){

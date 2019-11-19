@@ -1,11 +1,12 @@
-import express,{ Response,Request,NextFunction} from "express";
-import authMiddleware from '../../middleware/auth.middleware';
+
+import * as express from 'express';
 import RequestWithUser from '../../interfaces/requestWithUser.interface'
+import authMiddleware from '../../middleware/auth.middleware';
 import Controller from "../../interfaces/controller.interfaces";
 class UserController implements Controller {
 
   /* declarasi */
-  public path   = '/user'
+  public path   = '/users'
   public router =  express.Router()
   /*  */
   constructor(){
@@ -18,13 +19,16 @@ class UserController implements Controller {
     
     */
 
-    this.router.get(`${this.path}/:id`,authMiddleware,this.getUser);
+    this.router.get(`${this.path}/:id`,authMiddleware,this.getUser)
   }
   private getUser = async (request: RequestWithUser, response: express.Response, next: express.NextFunction) => {
     const userId = request.params.id;
-    if (userId === request.user._id.toString()) {
-      response.send('ok');
+    if(request.user){
+      if (userId === request.user._id.toString()) {
+        response.send('ok');
+      }
     }
+
     next(new Error());
   }
 
