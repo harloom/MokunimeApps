@@ -11,6 +11,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script>
       const socket = io("http://127.0.0.1:3000");
+      socket.on("messageBalas",(string)=>{
+        console.log(string)
+      })
+
+      socket.on("broadcast",(string)=>{
+        console.log(`boradcast : ${string}`)
+      })
+
       function sendMsg() {
         socket.emit("message", "HELLO WORLD");
       }
