@@ -1,7 +1,7 @@
 import express,{ Response,Request,NextFunction} from "express";
 import authMiddleware from '../../middleware/auth.middleware';
 import RequestWithUser from '../../interfaces/requestWithUser.interface'
-import  Controller from "../../interfaces/controller.interfaces";
+import Controller from "../../interfaces/controller.interfaces";
 class UserController implements Controller {
 
   /* declarasi */

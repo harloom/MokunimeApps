@@ -24,4 +24,4 @@ userSchema.pre("updateOne", function(next : HookNextFunction){
 
 });
 
-export default model<IUser>('User',userSchema);
+export default model<IUser  & Document>('User',userSchema);

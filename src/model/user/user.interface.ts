@@ -1,6 +1,6 @@
-import monggose,{Document,Schema,Model,model}from "mongoose";
+import monggose,{Document,Schema,Model,model} from "mongoose";
 
-export  default interface User extends Document {
+export  default interface User {
   _id: string;
   uid_firebase :String;
   name: string;
