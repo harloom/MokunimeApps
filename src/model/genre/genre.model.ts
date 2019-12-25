@@ -18,4 +18,4 @@ genreSchema.pre("updateOne" , function(next : HookNextFunction){
   next();
 });
 
-export default model<IGenre>('anime', genreSchema);
+export default model<IGenre>('genres', genreSchema);
