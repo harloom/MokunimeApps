@@ -9,10 +9,10 @@ import Connect from './db/monggose-db';
 import  dotenv from "dotenv";
 
 import * as path from "path";
-
-var cors = require('cors');
-
+import cors from "cors";
 import { createServer, Server } from 'http';
+import morgan from 'morgan';
+import helmet from 'helmet';
 
 
 class App{
@@ -59,7 +59,10 @@ class App{
 
     this.app.use(cors());
     this.app.options('*', cors());
+    this.app.use(morgan('tiny'));
+    this.app.use(helmet());
     this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded({extended:true}));
     this.app.use(cookieParser());
     
     this.app.get('/',(req:Request,res : Response ) => {

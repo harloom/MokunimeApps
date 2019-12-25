@@ -5,7 +5,7 @@ const genreSchema  : Schema = new Schema(
   {
     title : {type : String , required : true},
     crateAt : {type : Date , default: Date.now},
-    updateAt : {type : Date}
+    updateAt : {type : Date ,default: Date.now}
   }
 );
 
