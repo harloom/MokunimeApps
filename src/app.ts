@@ -27,7 +27,7 @@ class App{
     this.intialzieDotEnv()
     this.app.set("port", process.env.PORT || 3000);
     this.server = createServer(this.app);
-    // this.connectDatabase();
+    this.connectDatabase();
     this.initializeMiddleWare();
     this.io = socket(this.server);
     this.initializeController(controller);
@@ -78,7 +78,9 @@ class App{
       MONGO_PASSWORD,
       MONGO_PATH,
     } = process.env;
-    const db = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`;
+    // const db = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`;
+    const db = 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false'
+
     Connect({ db });
   }
 

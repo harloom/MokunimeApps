@@ -15,13 +15,13 @@ const userSchema : Schema= new Schema({
 });
 
 userSchema.pre("save" , function(next : monggose.HookNextFunction){
-  next()
+  next();
 });
 
 userSchema.pre("updateOne", function(next : HookNextFunction){
   this.setQuery({ updateAt: new Date() });
-  next()
+  next();
 
 });
 
-export default model<IUser  & Document>('User',userSchema);
+export default model<IUser  & Document>('user',userSchema);
