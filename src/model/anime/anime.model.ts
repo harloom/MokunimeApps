@@ -25,4 +25,4 @@ animeSchema.pre("updateOne" , function(next : HookNextFunction){
   next();
 });
 
-export default model<IAnime & Document>('anime', animeSchema);
+export default model<IAnime>('anime', animeSchema);

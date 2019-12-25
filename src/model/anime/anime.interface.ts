@@ -1,7 +1,8 @@
 import { IGenre } from "../genre/genre.interfaces";
+import { Document } from "mongoose";
 
-interface Anime{
-  id : String,
+interface Anime extends Document{
+  title : String,
   description : String
   genre : IGenre,
   thumbail : String,

@@ -1,4 +1,6 @@
-export interface IGenre{
+import { Document } from "mongoose";
+
+export interface IGenre extends Document{
   id : String,
   title :String
 }
