@@ -18,4 +18,4 @@ seasonSchema.pre("updateOne" , function(next : HookNextFunction){
   next();
 });
 
-export default model<ISeason & Document>('seasson', seasonSchema);
+export default model<ISeason>('seassons', seasonSchema);

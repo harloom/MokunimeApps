@@ -6,6 +6,7 @@ import {validationMiddleware, validationParamsId} from '../../middleware/validat
 import CreateGenreDto from './genre.dto';
 import * as HttpStatus from 'http-status-codes'
 import model from "./genre.model";
+import { IGenre } from './genre.interfaces';
 
 class GenreController implements Controller {
 
@@ -60,7 +61,13 @@ class GenreController implements Controller {
   private modifyGenre = async (request: express.Request
     , response: express.Response) => {
         console.log('Modify Genre');
-        
+        const id = request.params.id;
+    const postData: IGenre = request.body;
+    const genre = await this.genre.findByIdAndUpdate(id, postData, { new: true });
+    if (genre) {
+      return response.send(genre);
+    }
+    return response.sendStatus(HttpStatus.NOT_FOUND)
   }
 
   private getAllGenre = async (request: express.Request,

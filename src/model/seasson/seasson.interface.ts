@@ -1,4 +1,5 @@
-export interface ISeason{
-  id : String,
+import { Document } from "mongoose";
+
+export interface ISeason extends Document{
   title :String
 }
