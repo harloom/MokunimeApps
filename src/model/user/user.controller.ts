@@ -24,7 +24,7 @@ class UserController implements Controller {
   private getUser = async (request: RequestWithUser, response: express.Response, next: express.NextFunction) => {
     const userId = request.params.id;
     if(request.user){
-      if (userId === request.user._id.toString()) {
+      if (userId === request.user.id.toString()) {
         response.send('ok');
       }
     }

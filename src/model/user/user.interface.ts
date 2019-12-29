@@ -1,7 +1,7 @@
 
 
 interface User {
-  _id: string;
+  id: string;
   uid_firebase :String;
   name: string;
   email: string;

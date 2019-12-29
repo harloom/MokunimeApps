@@ -1,6 +1,7 @@
 import App  from './app';
 import  UserController from "./model/user/user.controller";
 import dotenv from 'dotenv';
+import GenreController from './model/genre/genre.controller';
 
 
 
@@ -11,10 +12,10 @@ dotenv.config({
 
 const app = new App(
   [
-    new UserController()
+    new UserController(),
+    new GenreController()
   ],
 );
 
-const PORT = process.env.PORT || 3000;
 
 app.listen()

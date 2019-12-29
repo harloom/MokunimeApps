@@ -8,7 +8,7 @@ export default({db} : DBInput) => {
     
     const connect = () => {
         mongoose
-            .connect(db,{ useNewUrlParser : true })
+            .connect(db,{ useNewUrlParser : true ,useUnifiedTopology: true })
             .then(() => {
                 return console.info(`Successfully connected to ${db}`);
             })
